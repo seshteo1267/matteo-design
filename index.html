@@ -122,10 +122,10 @@
         <a href="contact.html" class="btn-outline-dark">Get in Touch</a>
       </div>
       <div class="space-y-5 text-stone-600 leading-relaxed md:pt-6">
-        <p>
+        <p data-text="intro_para1">
           Matteo & Co. brings a refined eye and a passion for the details that transform a room from simply furnished to truly finished. Whether collaborating with architects and designers on photo shoot day, or helping a homeowner see their space with fresh perspective — every project is approached with the same care and intention.
         </p>
-        <p>
+        <p data-text="intro_para2">
           Founded by Tamera Matteo, the studio specializes in the quiet work that makes great spaces unforgettable: the perfect arrangement, the unexpected accent, the finishing touch that makes everything click.
         </p>
       </div>
@@ -313,9 +313,9 @@
       </div>
       <div class="flex flex-col gap-3">
         <p class="section-label mb-1">Contact</p>
-        <a href="tel:6099159900" class="text-xs text-stone-500 hover:text-stone-900 transition-colors">(609) 915-9900</a>
-        <a href="mailto:matteoandcofhf@gmail.com" class="text-xs text-stone-500 hover:text-stone-900 transition-colors">matteoandcofhf@gmail.com</a>
-        <a href="https://instagram.com/matteoandcofhf" target="_blank" class="text-xs text-stone-500 hover:text-stone-900 transition-colors">@matteoandcofhf</a>
+        <a href="tel:6099159900" data-phone class="text-xs text-stone-500 hover:text-stone-900 transition-colors">(609) 915-9900</a>
+        <a href="mailto:matteoandcofhf@gmail.com" data-email class="text-xs text-stone-500 hover:text-stone-900 transition-colors">matteoandcofhf@gmail.com</a>
+        <a href="https://instagram.com/matteoandcofhf" data-instagram target="_blank" class="text-xs text-stone-500 hover:text-stone-900 transition-colors">@matteoandcofhf</a>
       </div>
     </div>
     <div class="max-w-7xl mx-auto mt-10 pt-6 border-t border-stone-200">
@@ -331,6 +331,31 @@
         if (imgs[key]) el.src = imgs[key];
       });
     }).catch(function(){});
+
+    fetch('/content.json').then(function(r){ return r.json(); }).then(function(c){
+      document.querySelectorAll('[data-text]').forEach(function(el){
+        var key = el.getAttribute('data-text');
+        if (c[key] !== undefined) el.textContent = c[key];
+      });
+      if (c.phone) document.querySelectorAll('[data-phone]').forEach(function(el){
+        el.textContent = c.phone;
+        el.href = 'tel:' + c.phone.replace(/\D/g, '');
+      });
+      if (c.email) document.querySelectorAll('[data-email]').forEach(function(el){
+        el.textContent = c.email;
+        el.href = 'mailto:' + c.email;
+      });
+      if (c.instagram) document.querySelectorAll('[data-instagram]').forEach(function(el){
+        el.textContent = c.instagram;
+        el.href = 'https://instagram.com/' + c.instagram.replace('@', '');
+      });
+    }).catch(function(){});
+
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.on('init', function(user) {
+        if (!user) window.netlifyIdentity.on('login', function() { document.location.href = '/admin/'; });
+      });
+    }
   </script>
 
 </body>

@@ -6,6 +6,67 @@ media_folder: "uploads"
 public_folder: "/uploads"
 
 collections:
+
+  # ─── SITE TEXT ────────────────────────────────────────────────────────────
+  - name: "site-content"
+    label: "Site Text & Contact Info"
+    files:
+      - name: "all-content"
+        label: "Edit Text & Contact Info"
+        file: "content.json"
+        fields:
+
+          - label: "Phone Number"
+            name: "phone"
+            widget: "string"
+            hint: "Appears in the footer and contact page. Example: (609) 915-9900"
+
+          - label: "Email Address"
+            name: "email"
+            widget: "string"
+            hint: "Appears in the footer and contact page."
+
+          - label: "Instagram Handle"
+            name: "instagram"
+            widget: "string"
+            hint: "Just the handle, e.g. @matteoandcofhf"
+
+          - label: "Homepage — Intro Paragraph 1"
+            name: "intro_para1"
+            widget: "text"
+            hint: "First paragraph in the 'About the Studio' section on the homepage."
+
+          - label: "Homepage — Intro Paragraph 2"
+            name: "intro_para2"
+            widget: "text"
+            hint: "Second paragraph in the 'About the Studio' section on the homepage."
+
+          - label: "Services — Private Clients Description (para 1)"
+            name: "private_para1"
+            widget: "text"
+            hint: "First paragraph describing the Private Clients service."
+
+          - label: "Services — Private Clients Description (para 2)"
+            name: "private_para2"
+            widget: "text"
+            hint: "Second paragraph — mentions fees and consultation."
+
+          - label: "Services — Photo Shoot Styling Description (para 1)"
+            name: "photoshoot_para1"
+            widget: "text"
+            hint: "First paragraph describing the Photo Shoot Styling service."
+
+          - label: "Services — Photo Shoot Styling Description (para 2)"
+            name: "photoshoot_para2"
+            widget: "text"
+            hint: "Second paragraph — mentions scheduling and pricing."
+
+          - label: "Services — Pricing Note"
+            name: "pricing_note"
+            widget: "text"
+            hint: "The pricing note box at the bottom of the Photo Shoot Styling section."
+
+  # ─── SITE PHOTOS ─────────────────────────────────────────────────────────
   - name: "site-images"
     label: "Website Photos"
     files:
@@ -14,7 +75,6 @@ collections:
         file: "images.json"
         fields:
 
-          # ─── HOME PAGE ───────────────────────────────────────────────
           - label: "Homepage — Hero Photo"
             name: "hero"
             widget: "image"
@@ -90,11 +150,10 @@ collections:
             widget: "image"
             hint: "Fourteenth photo (visible on desktop only)."
 
-          # ─── SERVICES PAGE ───────────────────────────────────────────
           - label: "Services Page — Banner Photo"
             name: "fees_banner"
             widget: "image"
-            hint: "The wide photo that appears just below the Services & Fees heading."
+            hint: "The wide photo that appears just below the Services heading."
 
           - label: "Services Page — Side-by-Side Left Photo"
             name: "fees_divider_left"
@@ -106,7 +165,6 @@ collections:
             widget: "image"
             hint: "Right photo in the two-image divider between the two services."
 
-          # ─── CONTACT PAGE ────────────────────────────────────────────
           - label: "Contact Page — Footer Photo"
             name: "contact_footer"
             widget: "image"
