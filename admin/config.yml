@@ -1,0 +1,113 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "uploads"
+public_folder: "/uploads"
+
+collections:
+  - name: "site-images"
+    label: "Website Photos"
+    files:
+      - name: "all-photos"
+        label: "Manage All Photos"
+        file: "images.json"
+        fields:
+
+          # ─── HOME PAGE ───────────────────────────────────────────────
+          - label: "Homepage — Hero Photo"
+            name: "hero"
+            widget: "image"
+            hint: "The large full-screen photo at the very top of the homepage."
+
+          - label: "Homepage — Portfolio Photo 1"
+            name: "portfolio_1"
+            widget: "image"
+            hint: "First photo in the portfolio grid (top-left on desktop)."
+
+          - label: "Homepage — Portfolio Photo 2"
+            name: "portfolio_2"
+            widget: "image"
+            hint: "Second photo in the portfolio grid."
+
+          - label: "Homepage — Portfolio Photo 3"
+            name: "portfolio_3"
+            widget: "image"
+            hint: "Third photo in the portfolio grid."
+
+          - label: "Homepage — Portfolio Photo 4"
+            name: "portfolio_4"
+            widget: "image"
+            hint: "Fourth photo in the portfolio grid."
+
+          - label: "Homepage — Portfolio Photo 5"
+            name: "portfolio_5"
+            widget: "image"
+            hint: "Fifth photo in the portfolio grid."
+
+          - label: "Homepage — Portfolio Photo 6"
+            name: "portfolio_6"
+            widget: "image"
+            hint: "Sixth photo in the portfolio grid."
+
+          - label: "Homepage — Portfolio Photo 7"
+            name: "portfolio_7"
+            widget: "image"
+            hint: "Seventh photo (visible on desktop only)."
+
+          - label: "Homepage — Portfolio Photo 8"
+            name: "portfolio_8"
+            widget: "image"
+            hint: "Eighth photo (visible on desktop only)."
+
+          - label: "Homepage — Portfolio Photo 9"
+            name: "portfolio_9"
+            widget: "image"
+            hint: "Ninth photo (visible on desktop only)."
+
+          - label: "Homepage — Portfolio Photo 10"
+            name: "portfolio_10"
+            widget: "image"
+            hint: "Tenth photo (visible on desktop only)."
+
+          - label: "Homepage — Portfolio Photo 11"
+            name: "portfolio_11"
+            widget: "image"
+            hint: "Eleventh photo (visible on desktop only)."
+
+          - label: "Homepage — Portfolio Photo 12"
+            name: "portfolio_12"
+            widget: "image"
+            hint: "Twelfth photo (visible on desktop only)."
+
+          - label: "Homepage — Portfolio Photo 13"
+            name: "portfolio_13"
+            widget: "image"
+            hint: "Thirteenth photo (visible on desktop only)."
+
+          - label: "Homepage — Portfolio Photo 14"
+            name: "portfolio_14"
+            widget: "image"
+            hint: "Fourteenth photo (visible on desktop only)."
+
+          # ─── SERVICES PAGE ───────────────────────────────────────────
+          - label: "Services Page — Banner Photo"
+            name: "fees_banner"
+            widget: "image"
+            hint: "The wide photo that appears just below the Services & Fees heading."
+
+          - label: "Services Page — Side-by-Side Left Photo"
+            name: "fees_divider_left"
+            widget: "image"
+            hint: "Left photo in the two-image divider between the two services."
+
+          - label: "Services Page — Side-by-Side Right Photo"
+            name: "fees_divider_right"
+            widget: "image"
+            hint: "Right photo in the two-image divider between the two services."
+
+          # ─── CONTACT PAGE ────────────────────────────────────────────
+          - label: "Contact Page — Footer Photo"
+            name: "contact_footer"
+            widget: "image"
+            hint: "The wide photo that appears at the bottom of the contact page."
