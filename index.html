@@ -6,6 +6,15 @@
   <title>Matteo & Co. — Fine Home Furnishings</title>
   <meta name="description" content="Interior styling by Tamera Matteo. Photo shoot styling, room refreshes, furniture sourcing, and vacation rental prep." />
 
+  <!-- Open Graph -->
+  <meta property="og:title" content="Matteo & Co. — Fine Home Furnishings" />
+  <meta property="og:description" content="Interior styling by Tamera Matteo. Photo shoot styling, room refreshes, furniture sourcing, and vacation rental prep." />
+  <meta property="og:image" content="https://matteoco.com/Matteo%20%26%20Co%20card%20.png" />
+  <meta property="og:url" content="https://matteoco.com" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://matteoco.com/Matteo%20%26%20Co%20card%20.png" />
+
   <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
   <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
@@ -184,99 +193,152 @@
   </section>
 
   <!-- PORTFOLIO -->
-  <section id="portfolio" class="py-20 md:py-28 px-6 lg:px-10 bg-[#F9F7F2]">
-    <div class="max-w-7xl mx-auto">
+  <section id="portfolio" class="py-20 md:py-28 bg-[#F9F7F2]">
+    <div class="max-w-7xl mx-auto px-6 lg:px-10">
       <div class="flex items-end justify-between mb-12">
         <div>
           <p class="section-label mb-3">Portfolio</p>
           <h2 class="font-display text-3xl md:text-4xl font-normal">Styling by Tamera Matteo</h2>
         </div>
       </div>
+    </div>
+
+    <!-- Mobile swipe carousel -->
+    <div class="md:hidden relative" x-data="{
+      active: 0,
+      scrollTo(i) { this.$refs.track.scrollTo({ left: i * this.$refs.track.offsetWidth, behavior: 'smooth' }); }
+    }">
+      <!-- Prev arrow -->
+      <button @click="scrollTo(active - 1)" x-show="active > 0"
+              class="absolute left-3 top-1/2 -translate-y-1/2 z-10 opacity-70 hover:opacity-100 transition-opacity duration-200 pointer-events-auto">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-white drop-shadow" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+        </svg>
+      </button>
+      <!-- Next arrow -->
+      <button @click="scrollTo(active + 1)" x-show="active < 19"
+              class="absolute right-3 top-1/2 -translate-y-1/2 z-10 opacity-70 hover:opacity-100 transition-opacity duration-200 pointer-events-auto">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-white drop-shadow" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+        </svg>
+      </button>
+
+      <div x-ref="track"
+           class="flex overflow-x-scroll snap-x snap-mandatory"
+           style="scrollbar-width: none; -ms-overflow-style: none; -webkit-overflow-scrolling: touch;"
+           @scroll.passive="active = Math.round($refs.track.scrollLeft / $refs.track.offsetWidth)">
+
+        <div class="snap-start shrink-0 w-screen aspect-[4/3] overflow-hidden"><img src="Styling%20photos.1/riverside-orchid.jpg" alt="Portfolio" class="w-full h-full object-cover" draggable="false" loading="lazy" /></div>
+        <div class="snap-start shrink-0 w-screen aspect-[4/3] overflow-hidden"><img src="Styling%20photos.1/7%20carriage-living%20room.jpg" alt="Portfolio" class="w-full h-full object-cover" draggable="false" loading="lazy" /></div>
+        <div class="snap-start shrink-0 w-screen aspect-[4/3] overflow-hidden"><img src="Styling%20photos.1/Stoney%20Brook%20Lane-kitchen%202.jpg" alt="Portfolio" class="w-full h-full object-cover" draggable="false" loading="lazy" /></div>
+        <div class="snap-start shrink-0 w-screen aspect-[4/3] overflow-hidden"><img src="Styling%20photos.1/riverside%20table.jpg" alt="Portfolio" class="w-full h-full object-cover" draggable="false" loading="lazy" /></div>
+        <div class="snap-start shrink-0 w-screen aspect-[4/3] overflow-hidden"><img src="Styling%20photos.1/86%20olden%20ln-lving%20room.jpg" alt="Portfolio" class="w-full h-full object-cover" draggable="false" loading="lazy" /></div>
+        <div class="snap-start shrink-0 w-screen aspect-[4/3] overflow-hidden"><img src="Styling%20photos.1/riverside-family%20room.jpg" alt="Portfolio" class="w-full h-full object-cover" draggable="false" loading="lazy" /></div>
+        <div class="snap-start shrink-0 w-screen aspect-[4/3] overflow-hidden"><img src="Styling%20photos.1/4531%20PLR-sunroom2.jpg" alt="Portfolio" class="w-full h-full object-cover" draggable="false" loading="lazy" /></div>
+        <div class="snap-start shrink-0 w-screen aspect-[4/3] overflow-hidden"><img src="Styling%20photos.1/86%20olden%20ln-kitchen.jpg" alt="Portfolio" class="w-full h-full object-cover" draggable="false" loading="lazy" /></div>
+        <div class="snap-start shrink-0 w-screen aspect-[4/3] overflow-hidden"><img src="Styling%20photos.1/164%20Hunt%20Dr-bath%20final.jpg" alt="Portfolio" class="w-full h-full object-cover" draggable="false" loading="lazy" /></div>
+        <div class="snap-start shrink-0 w-screen aspect-[4/3] overflow-hidden"><img src="Styling%20photos.1/Stoney%20Brook%20Lane-stair.jpg" alt="Portfolio" class="w-full h-full object-cover" draggable="false" loading="lazy" /></div>
+        <div class="snap-start shrink-0 w-screen aspect-[4/3] overflow-hidden"><img src="Styling%20photos.1/7%20carriage%20-020A.jpg" alt="Portfolio" class="w-full h-full object-cover" draggable="false" loading="lazy" /></div>
+        <div class="snap-start shrink-0 w-screen aspect-[4/3] overflow-hidden"><img src="Styling%20photos.1/Eglantine%20Avenue-kitchen.jpg" alt="Portfolio" class="w-full h-full object-cover" draggable="false" loading="lazy" /></div>
+        <div class="snap-start shrink-0 w-screen aspect-[4/3] overflow-hidden"><img src="Styling%20photos.1/4531%20PLR-detail%20shot.jpg" alt="Portfolio" class="w-full h-full object-cover" draggable="false" loading="lazy" /></div>
+        <div class="snap-start shrink-0 w-screen aspect-[4/3] overflow-hidden"><img src="Styling%20photos.1/547%20Mercer%20Road%2Cliving%20room.jpg" alt="Portfolio" class="w-full h-full object-cover" draggable="false" loading="lazy" /></div>
+        <div class="snap-start shrink-0 w-screen aspect-[4/3] overflow-hidden"><img src="Styling%20photos.1/riverside-living%20room.jpg" alt="Portfolio" class="w-full h-full object-cover" draggable="false" loading="lazy" /></div>
+        <div class="snap-start shrink-0 w-screen aspect-[4/3] overflow-hidden"><img src="Photo%20Favorites/129%20bedens%20brook-008A.jpg" alt="Portfolio" class="w-full h-full object-cover" draggable="false" loading="lazy" /></div>
+        <div class="snap-start shrink-0 w-screen aspect-[4/3] overflow-hidden"><img src="Photo%20Favorites/129%20bedens%20brook-014A.jpg" alt="Portfolio" class="w-full h-full object-cover" draggable="false" loading="lazy" /></div>
+        <div class="snap-start shrink-0 w-screen aspect-[4/3] overflow-hidden"><img src="Photo%20Favorites/129%20bedens%20brook-017A.jpg" alt="Portfolio" class="w-full h-full object-cover" draggable="false" loading="lazy" /></div>
+        <div class="snap-start shrink-0 w-screen aspect-[4/3] overflow-hidden"><img src="Photo%20Favorites/50%20Pardee%20Circle-001A.jpg" alt="Portfolio" class="w-full h-full object-cover" draggable="false" loading="lazy" /></div>
+        <div class="snap-start shrink-0 w-screen aspect-[4/3] overflow-hidden"><img src="Photo%20Favorites/riverside-family%20room2.jpg" alt="Portfolio" class="w-full h-full object-cover" draggable="false" loading="lazy" /></div>
+
+      </div>
+      <!-- Dot indicators -->
+      <div class="flex justify-center items-center gap-1.5 mt-5 px-6">
+        <template x-for="i in 20" :key="i">
+          <button @click="scrollTo(i-1)"
+                  class="h-1.5 rounded-full transition-all duration-300"
+                  :class="active === i-1 ? 'w-4 bg-[#1A1A1A]' : 'w-1.5 bg-stone-300'">
+          </button>
+        </template>
+      </div>
+    </div>
+
+    <!-- Desktop masonry grid + lightbox -->
+    <div class="hidden md:block px-6 lg:px-10 max-w-7xl mx-auto" x-data="{ lightbox: null }">
+
+      <!-- Lightbox overlay -->
+      <div x-show="lightbox"
+           x-transition:enter="transition ease-out duration-400"
+           x-transition:enter-start="opacity-0 scale-95"
+           x-transition:enter-end="opacity-100 scale-100"
+           x-transition:leave="transition ease-in duration-300"
+           x-transition:leave-start="opacity-100 scale-100"
+           x-transition:leave-end="opacity-0 scale-95"
+           @click.self="lightbox = null"
+           @keydown.escape.window="lightbox = null"
+           class="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-6"
+           style="display:none;">
+        <button @click="lightbox = null"
+                class="absolute top-5 right-6 text-white/70 hover:text-white transition-colors duration-200 text-2xl leading-none">&times;</button>
+        <img :src="lightbox" class="max-h-[90vh] max-w-[90vw] object-contain shadow-2xl" />
+      </div>
 
       <div class="columns-2 lg:columns-3 gap-2">
 
-        <div class="break-inside-avoid mb-2 relative group overflow-hidden">
-          <img src="Styling%20photos.1/riverside-orchid.jpg"
-               data-img="portfolio_1"
-               alt="Riverside" class="w-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" />
+        <div class="break-inside-avoid mb-2 relative group overflow-hidden cursor-default">
+          <img src="Styling%20photos.1/riverside-orchid.jpg" alt="Riverside" @click="lightbox = 'Styling%20photos.1/riverside-orchid.jpg'" class="w-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" />
         </div>
-
-        <div class="break-inside-avoid mb-2 relative group overflow-hidden">
-          <img src="Styling%20photos.1/7%20carriage-living%20room.jpg"
-               data-img="portfolio_2"
-               alt="7 Carriage" class="w-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" />
+        <div class="break-inside-avoid mb-2 relative group overflow-hidden cursor-default">
+          <img src="Styling%20photos.1/7%20carriage-living%20room.jpg" alt="7 Carriage" @click="lightbox = 'Styling%20photos.1/7%20carriage-living%20room.jpg'" class="w-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" />
         </div>
-
-        <div class="break-inside-avoid mb-2 relative group overflow-hidden">
-          <img src="Styling%20photos.1/Stoney%20Brook%20Lane-kitchen%202.jpg"
-               data-img="portfolio_3"
-               alt="Stoney Brook Lane" class="w-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" />
+        <div class="break-inside-avoid mb-2 relative group overflow-hidden cursor-default">
+          <img src="Styling%20photos.1/Stoney%20Brook%20Lane-kitchen%202.jpg" alt="Stoney Brook Lane" @click="lightbox = 'Styling%20photos.1/Stoney%20Brook%20Lane-kitchen%202.jpg'" class="w-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" />
         </div>
-
-        <div class="break-inside-avoid mb-2 relative group overflow-hidden">
-          <img src="Styling%20photos.1/riverside%20table.jpg"
-               data-img="portfolio_4"
-               alt="Riverside" class="w-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" />
+        <div class="break-inside-avoid mb-2 relative group overflow-hidden cursor-default">
+          <img src="Styling%20photos.1/riverside%20table.jpg" alt="Riverside" @click="lightbox = 'Styling%20photos.1/riverside%20table.jpg'" class="w-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" />
         </div>
-
-        <div class="break-inside-avoid mb-2 relative group overflow-hidden">
-          <img src="Styling%20photos.1/86%20olden%20ln-lving%20room.jpg"
-               data-img="portfolio_5"
-               alt="86 Olden Lane" class="w-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" />
+        <div class="break-inside-avoid mb-2 relative group overflow-hidden cursor-default">
+          <img src="Styling%20photos.1/86%20olden%20ln-lving%20room.jpg" alt="86 Olden Lane" @click="lightbox = 'Styling%20photos.1/86%20olden%20ln-lving%20room.jpg'" class="w-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" />
         </div>
-
-        <div class="break-inside-avoid mb-2 relative group overflow-hidden">
-          <img src="Styling%20photos.1/riverside-family%20room.jpg"
-               data-img="portfolio_6"
-               alt="Riverside" class="w-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" />
+        <div class="break-inside-avoid mb-2 relative group overflow-hidden cursor-default">
+          <img src="Styling%20photos.1/riverside-family%20room.jpg" alt="Riverside" @click="lightbox = 'Styling%20photos.1/riverside-family%20room.jpg'" class="w-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" />
         </div>
-
-        <div class="hidden lg:block break-inside-avoid mb-2 relative group overflow-hidden">
-          <img src="Styling%20photos.1/Stoney%20Brook%20Lane-stair.jpg"
-               data-img="portfolio_7"
-               alt="Stoney Brook Lane" class="w-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" />
+        <div class="hidden lg:block break-inside-avoid mb-2 relative group overflow-hidden cursor-default">
+          <img src="Styling%20photos.1/Stoney%20Brook%20Lane-stair.jpg" alt="Stoney Brook Lane" @click="lightbox = 'Styling%20photos.1/Stoney%20Brook%20Lane-stair.jpg'" class="w-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" />
         </div>
-
-        <div class="hidden lg:block break-inside-avoid mb-2 relative group overflow-hidden">
-          <img src="Styling%20photos.1/4531%20PLR-sunroom2.jpg"
-               data-img="portfolio_8"
-               alt="4531 PLR" class="w-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" />
+        <div class="hidden lg:block break-inside-avoid mb-2 relative group overflow-hidden cursor-default">
+          <img src="Styling%20photos.1/4531%20PLR-sunroom2.jpg" alt="4531 PLR" @click="lightbox = 'Styling%20photos.1/4531%20PLR-sunroom2.jpg'" class="w-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" />
         </div>
-
-        <div class="hidden lg:block break-inside-avoid mb-2 relative group overflow-hidden">
-          <img src="Styling%20photos.1/86%20olden%20ln-kitchen.jpg"
-               data-img="portfolio_9"
-               alt="86 Olden Lane" class="w-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" />
+        <div class="hidden lg:block break-inside-avoid mb-2 relative group overflow-hidden cursor-default">
+          <img src="Styling%20photos.1/86%20olden%20ln-kitchen.jpg" alt="86 Olden Lane" @click="lightbox = 'Styling%20photos.1/86%20olden%20ln-kitchen.jpg'" class="w-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" />
         </div>
-
-        <div class="hidden lg:block break-inside-avoid mb-2 relative group overflow-hidden">
-          <img src="Styling%20photos.1/164%20Hunt%20Dr-bath%20final.jpg"
-               data-img="portfolio_10"
-               alt="164 Hunt Drive" class="w-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" />
+        <div class="hidden lg:block break-inside-avoid mb-2 relative group overflow-hidden cursor-default">
+          <img src="Styling%20photos.1/164%20Hunt%20Dr-bath%20final.jpg" alt="164 Hunt Drive" @click="lightbox = 'Styling%20photos.1/164%20Hunt%20Dr-bath%20final.jpg'" class="w-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" />
         </div>
-
-        <div class="hidden lg:block break-inside-avoid mb-2 relative group overflow-hidden">
-          <img src="Styling%20photos.1/Stoney%20Brook%20Lane-attic.jpg"
-               data-img="portfolio_11"
-               alt="Stoney Brook Lane" class="w-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" />
+        <div class="hidden lg:block break-inside-avoid mb-2 relative group overflow-hidden cursor-default">
+          <img src="Styling%20photos.1/Stoney%20Brook%20Lane-attic.jpg" alt="Stoney Brook Lane" @click="lightbox = 'Styling%20photos.1/Stoney%20Brook%20Lane-attic.jpg'" class="w-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" />
         </div>
-
-        <div class="hidden lg:block break-inside-avoid mb-2 relative group overflow-hidden">
-          <img src="Styling%20photos.1/7%20carriage%20-020A.jpg"
-               data-img="portfolio_12"
-               alt="7 Carriage" class="w-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" />
+        <div class="hidden lg:block break-inside-avoid mb-2 relative group overflow-hidden cursor-default">
+          <img src="Styling%20photos.1/7%20carriage%20-020A.jpg" alt="7 Carriage" @click="lightbox = 'Styling%20photos.1/7%20carriage%20-020A.jpg'" class="w-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" />
         </div>
-
-        <div class="hidden lg:block break-inside-avoid mb-2 relative group overflow-hidden">
-          <img src="Styling%20photos.1/Eglantine%20Avenue-kitchen.jpg"
-               data-img="portfolio_13"
-               alt="Eglantine Avenue" class="w-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" />
+        <div class="hidden lg:block break-inside-avoid mb-2 relative group overflow-hidden cursor-default">
+          <img src="Styling%20photos.1/Eglantine%20Avenue-kitchen.jpg" alt="Eglantine Avenue" @click="lightbox = 'Styling%20photos.1/Eglantine%20Avenue-kitchen.jpg'" class="w-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" />
         </div>
-
-        <div class="hidden lg:block break-inside-avoid mb-2 relative group overflow-hidden">
-          <img src="Styling%20photos.1/4531%20PLR-detail%20shot.jpg"
-               data-img="portfolio_14"
-               alt="4531 PLR" class="w-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" />
+        <div class="hidden lg:block break-inside-avoid mb-2 relative group overflow-hidden cursor-default">
+          <img src="Styling%20photos.1/4531%20PLR-detail%20shot.jpg" alt="4531 PLR" @click="lightbox = 'Styling%20photos.1/4531%20PLR-detail%20shot.jpg'" class="w-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" />
+        </div>
+        <div class="hidden lg:block break-inside-avoid mb-2 relative group overflow-hidden cursor-default">
+          <img src="Photo%20Favorites/129%20bedens%20brook-008A.jpg" alt="Bedens Brook" @click="lightbox = 'Photo%20Favorites/129%20bedens%20brook-008A.jpg'" class="w-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" />
+        </div>
+        <div class="hidden lg:block break-inside-avoid mb-2 relative group overflow-hidden cursor-default">
+          <img src="Photo%20Favorites/129%20bedens%20brook-014A.jpg" alt="Bedens Brook" @click="lightbox = 'Photo%20Favorites/129%20bedens%20brook-014A.jpg'" class="w-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" />
+        </div>
+        <div class="hidden lg:block break-inside-avoid mb-2 relative group overflow-hidden cursor-default">
+          <img src="Photo%20Favorites/129%20bedens%20brook-017A.jpg" alt="Bedens Brook" @click="lightbox = 'Photo%20Favorites/129%20bedens%20brook-017A.jpg'" class="w-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" />
+        </div>
+        <div class="hidden lg:block break-inside-avoid mb-2 relative group overflow-hidden cursor-default">
+          <img src="Photo%20Favorites/50%20Pardee%20Circle-001A.jpg" alt="50 Pardee Circle" @click="lightbox = 'Photo%20Favorites/50%20Pardee%20Circle-001A.jpg'" class="w-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" />
+        </div>
+        <div class="hidden lg:block break-inside-avoid mb-2 relative group overflow-hidden cursor-default">
+          <img src="Photo%20Favorites/riverside-family%20room2.jpg" alt="Riverside" @click="lightbox = 'Photo%20Favorites/riverside-family%20room2.jpg'" class="w-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" />
         </div>
 
       </div>
